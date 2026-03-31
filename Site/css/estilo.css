@@ -1,0 +1,42 @@
+.gradient-bg {
+    background: linear-gradient(135deg, #1e3a8a 0%, #065f46 100%);
+}
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+}
+
+nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.hero {
+  height: 80vh;
+  background: url('../img/salao.jpg') center/cover;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  background: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+section {
+  padding: 40px;
+}
