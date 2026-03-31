@@ -10,85 +10,101 @@
 
 </head>
 
-<body class="bg-gray-100 font-sans">
+<body class="font-sans bg-white">
 
 <!-- HEADER -->
-<header class="w-full bg-black text-white py-4 px-6 flex justify-between items-center shadow-md fixed top-0 left-0 z-10">
-    <div class="flex items-center space-x-2">
-        <i class="fa-solid fa-scissors text-2xl"></i>
+<header class="fixed top-0 left-0 w-full bg-black text-white flex justify-between items-center px-6 py-4 z-50">
+    <div class="flex items-center gap-2">
+        <i class="fa-solid fa-scissors"></i>
         <span class="font-bold text-lg">Cabelo & Cia</span>
     </div>
 
-    <nav class="hidden md:flex space-x-6">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
+    <nav class="hidden md:flex gap-6">
+        <a href="#sobre" class="hover:text-gray-300">Sobre</a>
+        <a href="#servicos" class="hover:text-gray-300">Serviços</a>
+        <a href="#contato" class="hover:text-gray-300">Contato</a>
     </nav>
-
-    <a href="https://wa.me/SEUNUMERO" class="bg-pink-600 px-4 py-2 rounded">
-        Agendar
-    </a>
 </header>
 
-<!-- LAYOUT -->
-<div class="flex pt-20">
+<!-- ESPAÇO HEADER -->
+<div class="h-16"></div>
 
-    <!-- SIDEBAR -->
-    <nav class="w-64 bg-white shadow-md hidden md:block">
-        <div class="p-6 font-bold">Menu</div>
+<!-- CARROSSEL -->
+<section class="relative w-full h-[70vh] overflow-hidden">
 
-        <ul class="space-y-2 px-4">
-            <li><a href="#sobre" class="block p-2 hover:bg-gray-200 rounded">Sobre</a></li>
-            <li><a href="#servicos" class="block p-2 hover:bg-gray-200 rounded">Serviços</a></li>
-            <li><a href="#contato" class="block p-2 hover:bg-gray-200 rounded">Contato</a></li>
-        </ul>
-    </nav>
+    <div id="carousel" class="w-full h-full relative">
 
-    <!-- CONTEÚDO -->
-    <main class="flex-1">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
+             class="absolute w-full h-full object-cover transition-opacity duration-700 opacity-100">
 
-        <!-- HERO -->
-        <section class="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white text-center"
-            style="background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9');">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552"
+             class="absolute w-full h-full object-cover transition-opacity duration-700 opacity-0">
 
-            <h1 class="text-4xl font-bold mb-4">Realce sua beleza</h1>
-            <p class="mb-6">Transformamos autoestima em estilo</p>
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f"
+             class="absolute w-full h-full object-cover transition-opacity duration-700 opacity-0">
+    </div>
 
-            <a href="https://wa.me/SEUNUMERO" class="bg-pink-600 px-6 py-3 rounded">
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white text-center">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">Realce sua beleza</h1>
+        <p class="mb-6">Transformamos autoestima em estilo</p>
+                    <a href="https://wa.me/SEUNUMERO" class="bg-pink-600 px-6 py-3 rounded">
                 Agendar horário
             </a>
-        </section>
+    </div>
 
-        <!-- SOBRE -->
-        <section id="sobre" class="p-10 bg-white">
-            <h2 class="text-2xl font-bold mb-4">Sobre nós</h2>
-            <p>Somos especialistas em beleza e cuidado capilar, oferecendo serviços de alta qualidade em um ambiente moderno e acolhedor.</p>
-        </section>
+</section>
 
-        <!-- SERVIÇOS -->
-        <section id="servicos" class="p-10 bg-gray-100">
-            <h2 class="text-2xl font-bold mb-4">Serviços</h2>
+<!-- SOBRE -->
+<section id="sobre" class="p-8 md:p-16">
+    <h2 class="text-2xl font-bold mb-4">Sobre nós</h2>
+    <p class="max-w-2xl">
+        Somos especialistas em beleza e cuidado capilar, oferecendo serviços de alta qualidade em um ambiente moderno e acolhedor.
+    </p>
+</section>
 
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="bg-white p-4 shadow rounded">Corte</div>
-                <div class="bg-white p-4 shadow rounded">Coloração</div>
-                <div class="bg-white p-4 shadow rounded">Hidratação</div>
-            </div>
-        </section>
+<!-- SERVIÇOS -->
+<section id="servicos" class="p-8 md:p-16 bg-gray-100">
+    <h2 class="text-2xl font-bold mb-6">Serviços</h2>
 
-        <!-- CONTATO -->
-        <section id="contato" class="p-10 bg-white text-center">
-            <h2 class="text-2xl font-bold mb-4">Contato</h2>
-            <p>WhatsApp: (xx) xxxxx-xxxx</p>
-            <p>Instagram: @cabeloe cia</p>
-        </section>
+    <div class="grid gap-4 md:grid-cols-3">
+        <div class="bg-white p-6 shadow rounded">Corte</div>
+        <div class="bg-white p-6 shadow rounded">Coloração</div>
+        <div class="bg-white p-6 shadow rounded">Hidratação</div>
+    </div>
+</section>
 
-    </main>
-</div>
+<!-- CONTATO -->
+<section id="contato" class="p-8 md:p-16 text-center">
+    <h2 class="text-2xl font-bold mb-4">Contato</h2>
+    <p>Instagram: @cabeloe cia</p>
+</section>
 
-<footer class="text-center p-4 bg-black text-white">
+<!-- BOTÃO WHATSAPP FIXO -->
+<a href="https://wa.me/SEUNUMERO"
+   class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg text-xl hover:bg-green-600 z-50">
+   <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white text-center p-4">
     © 2026 Cabelo & Cia
 </footer>
+
+<!-- SCRIPT CARROSSEL -->
+<script>
+const slides = document.querySelectorAll('#carousel img');
+let index = 0;
+
+setInterval(() => {
+    slides[index].classList.remove('opacity-100');
+    slides[index].classList.add('opacity-0');
+
+    index = (index + 1) % slides.length;
+
+    slides[index].classList.remove('opacity-0');
+    slides[index].classList.add('opacity-100');
+}, 4000);
+</script>
 
 </body>
 </html>
