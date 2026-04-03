@@ -1,165 +1,92 @@
-.gradient-bg {
-    background: linear-gradient(135deg, #1e3a8a 0%, #065f46 100%);
-}
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-}
-.titulo { 
-  font-family: 'Playfair Display', serif; 
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background: #111;
-  color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
-nav a {
-  color: white;
-  margin-left: 15px;
-  text-decoration: none;
-}
-
-.hero {
-  height: 80vh;
-  background: url('../img/salao.jpg') center/cover;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.btn {
-  background: #e91e63;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-section {
-  padding: 40px;
+.titulo {
+    font-family: 'Playfair Display', serif;
 }
 
 /* ANIMAÇÕES SUAVES */
 a, button {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 /* BOTÕES (EFEITO LEVE DE ELEVAÇÃO) */
 a:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
 /* BOTÃO PRINCIPAL */
+.btn-hover {
+    transition: all 0.3s ease;
+}
+
 .btn-hover:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* CARDS DE SERVIÇO */
 .card-hover {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* IMAGEM ZOOM */
-.img-hover {
-  transition: transform 0.5s ease;
-}
-
-.card-hover:hover .img-hover {
-  transform: scale(1.08);
-}
-
-/* BOTÃO WHATSAPP */
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-#carousel img {
-  transition: opacity 1s ease-in-out;
-}
-
-
-
-body { 
-  font-family: 'Poppins', sans-serif; 
-}
-
-.titulo { 
-  font-family: 'Playfair Display', serif; 
-}
-
-/* BOTÕES */
-.btn-hover {
-  transition: all 0.3s ease;
-}
-.btn-hover:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* CARDS */
-.card-hover {
-  transition: all 0.3s ease;
-  position: relative;
-}
-.card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* ZOOM IMAGEM */
-.img-hover {
-  transition: transform 0.5s ease;
-}
-.card-hover:hover .img-hover {
-  transform: scale(1.08);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* OVERLAY SUAVE */
 .card-hover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(236, 72, 153, 0.1);
-  opacity: 0;
-  transition: 0.3s;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(236, 72, 153, 0.1);
+    opacity: 0;
+    transition: 0.3s;
 }
+
 .card-hover:hover::after {
-  opacity: 1;
+    opacity: 1;
+}
+
+/* IMAGEM ZOOM */
+.img-hover {
+    transition: transform 0.5s ease;
+}
+
+.card-hover:hover .img-hover {
+    transform: scale(1.08);
 }
 
 /* GALERIA */
 .gallery img {
-  transition: all 0.4s ease;
-  cursor: pointer;
-}
-.gallery img:hover {
-  transform: scale(1.08);
-  filter: brightness(1.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
 }
 
-/* WHATSAPP */
-.whatsapp-float {
-  transition: 0.3s;
+.gallery img:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1);
 }
+
+/* BOTÃO WHATSAPP */
+.whatsapp-float {
+    transition: 0.3s;
+}
+
 .whatsapp-float:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* CARROSSEL */
 #carousel img {
-  transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 /* SCROLL SUAVE */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
