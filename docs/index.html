@@ -3,74 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Cabelo & Cia</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/estilo.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="css/estilo.css">
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {},
+                }
+            }
+        </script>
+        <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white">
     <header class="fixed top-0 left-0 w-full bg-black text-white flex justify-between items-center px-4 py-4 z-50">
-    
     <a href="#" class="flex items-center gap-2">
         <i class="fa-solid fa-scissors text-pink-400"></i>
         <span class="font-bold text-lg">Cabelo & Cia</span>
     </a>
-
     <!-- BOTÃO MOBILE -->
     <button id="menuBtn" class="md:hidden text-2xl" aria-label="Abrir menu">
         <i class="fa-solid fa-bars"></i>
     </button>
-
     <!-- MENU DESKTOP -->
     <nav class="hidden md:flex gap-6">
         <a href="#sobre" class="hover:text-pink-400">Sobre</a>
         <a href="#servicos" class="hover:text-pink-400">Serviços</a>
         <a href="#contato" class="hover:text-pink-400">Contato</a>
     </nav>
-</header>
-
+    </header>
 <!-- MENU MOBILE DRAWER -->
-<div id="mobileMenu" class="fixed top-0 right-0 w-[70%] h-full bg-black text-white transform translate-x-full transition-transform duration-300 z-50 p-6">
+    <div id="mobileMenu" class="fixed top-0 right-0 w-[70%] h-full bg-black text-white transform translate-x-full transition-transform duration-300 z-50 p-6">
 
-    <button id="closeMenu" class="text-2xl mb-6">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
+        <button id="closeMenu" class="text-2xl mb-6">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
 
-    <nav class="flex flex-col gap-6 text-lg">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#contato">Contato</a>
-    </nav>
-</div>
-
-<!-- OVERLAY -->
-<div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
-
+        <nav class="flex flex-col gap-6 text-lg">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
+    <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
     <div class="h-16"></div>
-
     <section class="relative w-full h-[75vh] overflow-hidden">
         <div id="carousel" class="w-full h-full relative">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" class="absolute w-full h-full object-cover opacity-100" alt="Salão">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552" class="absolute w-full h-full object-cover opacity-0" alt="Corte">
-            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f" class="absolute w-full h-full object-cover opacity-0" alt="Beleza">
-            <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250" class="absolute w-full h-full object-cover opacity-0" alt="Cabelo">
-            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="absolute w-full h-full object-cover opacity-0" alt="Estética">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" class="absolute w-full h-full object-cover opacity-100" alt="Salão" fetchpriority="high" loading="eager" decoding="async">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552" class="absolute w-full h-full object-cover opacity-0" alt="Corte" loading="lazy" decoding="async" width="1200" height="675">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f" class="absolute w-full h-full object-cover opacity-0" alt="Beleza" loading="lazy" decoding="async" width="1200" height="675">
+            <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250" class="absolute w-full h-full object-cover opacity-0" alt="Cabelo" loading="lazy" decoding="async" width="1200" height="675">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="absolute w-full h-full object-cover opacity-0" alt="Estética" loading="lazy" decoding="async" width="1200" height="675">
         </div>
-
         <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center">
-            <h1 class="titulo text-4xl md:text-6xl mb-4 text-pink-300">Realce sua beleza</h1>
+            <h1 class="titulo text-4xl md:text-6xl mb-4 text-pink-300">Realce Sua Beleza</h1>
             <p class="mb-6">Transformamos autoestima em estilo</p>
-
             <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="bg-pink-600 px-6 py-3 rounded btn-hover">
                 Agendar horário
             </a>
         </div>
     </section>
-
     <section id="sobre" class="p-8 md:p-16 text-center">
         <h2 class="titulo text-3xl text-pink-500 mb-4">Sobre nós</h2>
         <p class="max-w-2xl mx-auto">
@@ -86,48 +82,64 @@
             com o calor de um espaço familiar. Venha nos visitar e sinta a diferença que um salão apaixonado pode fazer!
         </p>
     </section>
-
     <section id="servicos" class="p-8 md:p-16 bg-pink-50">
         <h2 class="titulo text-3xl text-pink-500 mb-10 text-center">Serviços</h2>
-
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div class="bg-white rounded shadow overflow-hidden card-hover">
-                <img src="img/CorteCabelo.webp" class="w-full h-40 object-cover img-hover" alt="Corte">
+                <picture>
+                    <source srcset="img/CorteCabelo.webp" type="image/webp">
+                    <img src="img/CorteCabelo.jpg" class="w-full h-40 object-cover img-hover" alt="Corte" loading="lazy" decoding="async" width="1200" height="675">
+                </picture>
                 <div class="p-4">
                     <h3 class="font-bold text-lg">Corte</h3>
                     <p class="text-sm text-gray-600">Estilo moderno e personalizado.</p>
                 </div>
             </div>
             <div class="bg-white rounded shadow overflow-hidden card-hover">
-                <img src="img/ColoracaoCabelo.webp" class="w-full h-40 object-cover img-hover" alt="Coloração">
+                <picture>
+                    <source srcset="img/ColoracaoCabelo.webp" type="image/webp">
+                    <img src="img/ColoracaoCabelo.jpg" class="w-full h-40 object-cover img-hover" alt="Coloração" loading="lazy" decoding="async" width="1200" height="675">
+                </picture>
                 <div class="p-4">
                     <h3 class="font-bold text-lg">Coloração</h3>
                     <p class="text-sm text-gray-600">Cores vibrantes e naturais.</p>
                 </div>
             </div>
             <div class="bg-white rounded shadow overflow-hidden card-hover">
-                <img src="img/HidratacaoCabelo.webp" class="w-full h-40 object-cover img-hover" alt="Hidratação">
+                <picture>
+                    <source srcset="img/HidratacaoCabelo.webp" type="image/webp">
+                    <img src="img/HidratacaoCabelo.jpg" class="w-full h-40 object-cover img-hover" alt="Hidratação" loading="lazy" decoding="async" width="1200" height="675">
+                </picture>
                 <div class="p-4">
                     <h3 class="font-bold text-lg">Hidratação</h3>
                     <p class="text-sm text-gray-600">Tratamento profundo capilar.</p>
                 </div>
             </div>
             <div class="bg-white rounded shadow overflow-hidden card-hover">
-                <img src="img/DepilacaoCera.webp" class="w-full h-40 object-cover img-hover" alt="Depilação com Cera">
+                <picture>
+                    <source srcset="img/DepilacaoCera.webp" type="image/webp">
+                    <img src="img/DepilacaoCera.jpg" class="w-full h-40 object-cover img-hover" alt="Depilação com Cera" loading="lazy" decoding="async" width="1200" height="675">
+                </picture>
                 <div class="p-4">
                     <h3 class="font-bold text-lg">Depilação com Cera</h3>
                     <p class="text-sm text-gray-600">Pele mais bonita e suave.</p>
                 </div>
             </div>
             <div class="bg-white rounded shadow overflow-hidden card-hover">
-                <img src="img/Manicure.webp" class="w-full h-40 object-cover img-hover" alt="Manicure">
+                <picture>
+                    <source srcset="img/Manicure.webp" type="image/webp">
+                    <img src="img/Manicure.jpg" class="w-full h-40 object-cover img-hover" alt="Manicure" loading="lazy" decoding="async" width="1200" height="675">
+                </picture>
                 <div class="p-4">
                     <h3 class="font-bold text-lg">Manicure</h3>
                     <p class="text-sm text-gray-600">Unhas perfeitas e cuidadas.</p>
                 </div>
             </div>
             <div class="bg-white rounded shadow overflow-hidden card-hover">
-                <img src="img/Pedicure.webp" class="w-full h-40 object-cover img-hover" alt="Pedicure">
+                <picture>
+                    <source srcset="img/Pedicure.webp" type="image/webp">
+                    <img src="img/Pedicure.jpg" class="w-full h-40 object-cover img-hover" alt="Pedicure" loading="lazy" decoding="async" width="1200" height="675">
+                </picture>
                 <div class="p-4">
                     <h3 class="font-bold text-lg">Pedicure</h3>
                     <p class="text-sm text-gray-600">Pés bonitos e bem cuidados.</p>
@@ -135,20 +147,21 @@
             </div>
         </div>
     </section>
-
     <section class="p-8 md:p-16">
         <h2 class="titulo text-3xl text-pink-500 mb-8 text-center">Galeria</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f" class="rounded cursor-pointer gallery-img" alt="Imagem 1">
-            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4" class="rounded cursor-pointer gallery-img" alt="Imagem 2">
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" class="rounded cursor-pointer gallery-img" alt="Imagem 3">
-            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f" class="rounded cursor-pointer gallery-img" alt="Imagem 4">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f" class="rounded cursor-pointer gallery-img" alt="Imagem 1" loading="lazy" decoding="async" width="400" height="300">
+            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4" class="rounded cursor-pointer gallery-img" alt="Imagem 2" loading="lazy" decoding="async" width="400" height="300">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" class="rounded cursor-pointer gallery-img" alt="Imagem 3" loading="lazy" decoding="async" width="400" height="300">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f" class="rounded cursor-pointer gallery-img" alt="Imagem 4" loading="lazy" decoding="async" width="400" height="300">
         </div>
     </section>
     <!-- MODAL GALERIA -->
     <div id="lightbox" class="fixed inset-0 bg-black/90 items-center justify-center z-50 p-4 hidden">
-        <button id="closeLightbox" class="absolute top-5 right-5 text-white text-3xl"></button>
-        <img id="lightboxImg" class="max-w-full max-h-[90vh] rounded shadow-lg" alt="Imagem ampliada" src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4">
+        <button id="closeLightbox" class="absolute top-5 right-5 text-white text-3xl z-50">&times;</button>
+        <button id="prevBtn" class="absolute left-3 md:left-10 text-white text-3xl md:text-5xl z-50">&#10094;</button>
+        <img id="lightboxImg" class="max-w-full max-h-[90vh] rounded shadow-lg select-none" alt="Imagem ampliada" loading="lazy" decoding="async">
+        <button id="nextBtn" class="absolute right-3 md:right-10 text-white text-3xl md:text-5xl z-50">&#10095;</button>
     </div>
 
     <section id="contato" class="p-8 md:p-16 text-center bg-pink-50">
@@ -164,61 +177,93 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     <div class="h-20 md:hidden"></div>
-    
     <footer class="bg-black text-white text-center p-4">
         © 2026 Cabelo &amp; Cia Itapira
         <p>Todos os direitos reservados. | Desenvolvido por Rafael Cavallaro Rossi</p>
     </footer>
     
-    <script>
+    <script defer>
         document.addEventListener("DOMContentLoaded", () => {
             const slides = document.querySelectorAll('#carousel img');
             let index = 0;
             setInterval(() => {
                 slides[index].style.opacity = 0;
                 index = (index + 1) % slides.length;
-                slides[index].style.opacity = 1;
+                requestAnimationFrame(() => {
+                    slides[index].style.opacity = 1;
+                });
             }, 4000);
-        });
 
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenu = document.getElementById('closeMenu');
-        const overlay = document.getElementById('overlay');
-        function openMenu() {
-            mobileMenu.classList.remove('translate-x-full');
-            overlay.classList.remove('hidden');
-        }
-        function closeMenuFunc() {
-            mobileMenu.classList.add('translate-x-full');
-            overlay.classList.add('hidden');
-        }
-        menuBtn.addEventListener('click', openMenu);
-        closeMenu.addEventListener('click', closeMenuFunc);
-        overlay.addEventListener('click', closeMenuFunc);
-                
-        const galleryImages = document.querySelectorAll('.gallery-img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const closeLightbox = document.getElementById('closeLightbox');
-        galleryImages.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMenu = document.getElementById('closeMenu');
+            const overlay = document.getElementById('overlay');
+            function openMenu() {
+                mobileMenu.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+            function closeMenuFunc() {
+                mobileMenu.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+            menuBtn.addEventListener('click', openMenu);
+            closeMenu.addEventListener('click', closeMenuFunc);
+            overlay.addEventListener('click', closeMenuFunc);
+
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeLightbox = document.getElementById('closeLightbox');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            let currentIndex = 0;
+            galleryImages.forEach((img, idx) => {
+                img.addEventListener('click', () => {
+                    currentIndex = idx;
+                    showImage();
+                    openModal();
+                });
+            });
+            function showImage() {
+                lightboxImg.src = galleryImages[currentIndex].src;
+            }
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % galleryImages.length;
+                showImage();
+            }
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                showImage();
+            }
+            function openModal() {
                 lightbox.classList.remove('hidden');
                 lightbox.classList.add('flex');
-                document.body.style.overflow = 'hidden'; // trava scroll
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal() {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+            nextBtn.addEventListener('click', nextImage);
+            prevBtn.addEventListener('click', prevImage);
+            closeLightbox.addEventListener('click', closeModal);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('hidden')) {
+                    if (e.key === 'ArrowRight') nextImage();
+                    if (e.key === 'ArrowLeft') prevImage();
+                    if (e.key === 'Escape') closeModal();
+                }
             });
         });
-        function closeModal() {
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-        closeLightbox.addEventListener('click', closeModal);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeModal();
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") {
+                location.reload();
+            }
         });
     </script>
-    
 </body>
 </html>
