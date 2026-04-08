@@ -11,16 +11,31 @@ a, button {
 a:hover {
     transform: translateY(-2px);
 }
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .btn-hover {
     transition: all 0.3s ease;
+    will-change: transform;
 }
 .btn-hover:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
 .card-hover {
     transition: all 0.3s ease;
     position: relative;
+    will-change: transform;
 }
 .card-hover:hover {
     transform: translateY(-6px);
@@ -51,12 +66,39 @@ a:hover {
     transform: scale(1.08);
     filter: brightness(1.1);
 }
+
 .whatsapp-float {
     transition: 0.3s;
+    will-change: transform;
 }
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+
+#mobileMenu {
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+}
+
+#mobileMenu.is-open {
+    opacity: 1;
+}
+
+#mobileMenu nav a {
+    transform: translateX(10px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#mobileMenu.is-open nav a {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#mobileMenu.is-open nav a:nth-child(1) { transition-delay: 0.05s; }
+#mobileMenu.is-open nav a:nth-child(2) { transition-delay: 0.10s; }
+#mobileMenu.is-open nav a:nth-child(3) { transition-delay: 0.15s; }
+
 #carousel img {
     transition: opacity 1s ease-in-out;
 }
