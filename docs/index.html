@@ -9,19 +9,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="css/estilo.css">
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {},
-                }
-            }
-        </script>
         <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white">
     <header class="fixed top-0 left-0 w-full bg-black text-white flex justify-between items-center px-4 py-4 z-50">
-    <a href="#" class="flex items-center gap-2">
+    <a href="index.html" class="flex items-center gap-2">
         <i class="fa-solid fa-scissors text-pink-400"></i>
         <span class="font-bold text-lg">Cabelo & Cia</span>
     </a>
@@ -168,7 +161,7 @@
         <h2 class="titulo text-3xl text-pink-500 mb-6">Contato</h2>
         <div class="space-y-3 max-w-md mx-auto">
             <a href="https://www.facebook.com/Glaucavallaro" class="block bg-blue-600 text-white py-3 rounded hover:bg-blue-700">Facebook</a>
-            <a href="#" class="block bg-pink-500 text-white py-3 rounded hover:bg-pink-600">Instagram</a>
+            <a href="https://www.instagram.com/cabeloecia" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white py-3 rounded hover:bg-pink-600">Instagram</a>
             <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="block bg-green-500 text-white py-3 rounded hover:bg-green-600">WhatsApp</a>
         </div>
     </section>
@@ -258,11 +251,6 @@
                     if (e.key === 'Escape') closeModal();
                 }
             });
-        });
-        document.addEventListener("visibilitychange", () => {
-            if (document.visibilityState === "visible") {
-                location.reload();
-            }
         });
     </script>
 </body>
