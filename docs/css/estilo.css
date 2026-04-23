@@ -1,15 +1,28 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    /**/    
+    line-height: 1.6;
 }
-.titulo {
-    font-family: 'Playfair Display', serif;
-}
+
 a, button {
     transition: all 0.3s ease;
 }
+
 a:hover {
     transform: translateY(-2px);
+}
+
+#carousel img {
+    transition: opacity 1s ease-in-out;
+}
+
+.titulo {
+    font-family: 'Playfair Display', serif;
 }
 
 .fade-up {
@@ -27,6 +40,7 @@ a:hover {
     transition: all 0.3s ease;
     will-change: transform;
 }
+
 .btn-hover:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -37,10 +51,12 @@ a:hover {
     position: relative;
     will-change: transform;
 }
+
 .card-hover:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
+
 .card-hover::after {
     content: "";
     position: absolute;
@@ -48,21 +64,26 @@ a:hover {
     background: rgba(236, 72, 153, 0.1);
     opacity: 0;
     transition: 0.3s;
-    pointer-events: none; /* ISSO EVITA BLOQUEAR CLIQUE */
+    pointer-events: none;
 }
+
 .card-hover:hover::after {
     opacity: 1;
 }
+
 .img-hover {
     transition: transform 0.5s ease;
 }
+
 .card-hover:hover .img-hover {
     transform: scale(1.08);
 }
+
 .gallery-img {
     transition: all 0.4s ease;
     cursor: pointer;
 }
+
 .gallery-img:hover {
     transform: scale(1.08);
     filter: brightness(1.1);
@@ -96,11 +117,18 @@ a:hover {
     opacity: 1;
 }
 
-#mobileMenu.is-open nav a:nth-child(1) { transition-delay: 0.05s; }
-#mobileMenu.is-open nav a:nth-child(2) { transition-delay: 0.10s; }
-#mobileMenu.is-open nav a:nth-child(3) { transition-delay: 0.15s; }
+#mobileMenu.is-open nav a:nth-child(1) { 
+    transition-delay: 0.05s;
+}
 
-/* ACCORDION SERVIÇOS */
+#mobileMenu.is-open nav a:nth-child(2) {
+    transition-delay: 0.10s;
+}
+
+#mobileMenu.is-open nav a:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
 .service-card {
     display: flex;
     flex-direction: column;
@@ -180,14 +208,142 @@ a:hover {
     margin: 0.5rem 0 0 0;
 }
 
-#carousel img {
-    transition: opacity 1s ease-in-out;
-}
-html {
-    scroll-behavior: smooth;
-}
 
 .service-header {
     position: relative;
     z-index: 2;
+}
+
+/* Novo */
+
+:root {
+    --primary: #ec4899;
+    --dark: #111;
+    --light: #fdf2f8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background: var(--light);
+}
+
+.header {
+    background: var(--dark);
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.menu a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.hero {
+    height: 80vh;
+    background: url('../img/Sala1.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgba(0,0,0,0.5);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.title-center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.max-text {
+    max-width: 600px;
+    margin: auto;
+}
+
+.mt {
+    margin-top: 15px;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
