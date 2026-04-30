@@ -1,344 +1,257 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <title>Cabelo & Cia Itapira</title>
-        <meta name="description" content="Cortes, coloração, hidratação e estética em Itapira. Atendimento profissional desde 1994. Agende pelo WhatsApp.">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="css/estilo.css">
-        <link rel="icon" type="image/jpg" sizes="32x32" href="img/logo2.jpg">
-        <link rel="icon" type="image/jpg" sizes="16x16" href="img/logo2.jpg">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/logo2.jpg">
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-white">
-        <header class="fixed top-0 left-0 w-full bg-black text-white flex justify-between items-center px-4 py-4 z-50">
-        <a href="index.html" class="flex items-center gap-2">
-            <span class="font-bold text-lg logo hover:text-pink-300">✂ Cabelo & Cia</span>
-        </a>
-        <button id="menuBtn" class="md:hidden text-2xl" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" aria-haspopup="true"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
-        <nav class="hidden md:flex gap-6 menu" role="navigation" aria-label="Menu principal">
-            <a href="#sobre" class="hover:text-pink-400">Sobre</a>
-            <a href="#servicos" class="hover:text-pink-400">Serviços</a>
-            <a href="#contato" class="hover:text-pink-400">Contato</a>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cabelo & Cia Itapira</title>
+  <meta name="description" content="Cortes, coloração, hidratação e estética em Itapira. Atendimento profissional desde 1994. Agende pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="icon" type="image/jpg" sizes="32x32" href="img/logo2.jpg">
+  <link rel="icon" type="image/jpg" sizes="16x16" href="img/logo2.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/logo2.jpg">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="brand" href="index.html">✂ Cabelo & Cia</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <nav class="site-nav" aria-label="Menu principal">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#sobre">Sobre</a></li>
+          <li><a class="site-nav__link" href="#servicos">Serviços</a></li>
+          <li><a class="site-nav__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" role="navigation" aria-label="Menu móvel" aria-hidden="true" data-mobile-menu>
+      <div class="mobile-menu__header">
+        <span class="mobile-menu__title">Menu</span>
+        <button class="mobile-menu__close" type="button" aria-label="Fechar menu" data-menu-close>&times;</button>
+      </div>
+      <nav aria-label="Menu móvel">
+        <ul class="mobile-menu__list">
+          <li><a class="mobile-menu__link" href="#sobre">Sobre</a></li>
+          <li><a class="mobile-menu__link" href="#servicos">Serviços</a></li>
+          <li><a class="mobile-menu__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="overlay" aria-hidden="true" data-menu-overlay></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div id="carousel" class="hero__carousel" aria-label="Carrossel de imagens do salão">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" class="hero__slide is-active" alt="Salão" loading="eager" decoding="async" fetchpriority="high">
+        <img src="img/Sala4.jpg" class="hero__slide" alt="Corte" loading="lazy" decoding="async" width="1200" height="675">
+        <img src="img/Lava3.jpg" class="hero__slide" alt="Beleza" loading="lazy" decoding="async" width="1200" height="675">
+        <img src="img/Depila2.jpg" class="hero__slide" alt="Cabelo" loading="lazy" decoding="async" width="1200" height="675">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="hero__slide" alt="Estética" loading="lazy" decoding="async" width="1200" height="675">
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content container">
+        <h1 class="hero__title">Cabelo, estética e cuidados profissionais em Itapira</h1>
+        <p class="hero__subtitle">Transformamos autoestima em estilo</p>
+        <a class="button button--primary" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Agendar horário</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="section section--about reveal">
+      <div class="container">
+        <header class="section__header">
+          <h2 class="section__title">Sobre nós</h2>
         </header>
-        <div id="mobileMenu" class="fixed top-0 right-0 w-[70%] h-full bg-black text-white transform translate-x-full transition-transform duration-300 z-50 p-6" role="navigation" aria-label="Menu móvel" aria-hidden="true">
-            <button id="closeMenu" class="text-2xl mb-6" aria-label="Fechar menu"><span aria-hidden="true" class="text-2xl">✖</span></button>
-            <nav class="flex flex-col gap-6 text-lg menu" role="navigation" aria-label="Menu móvel">
-                <a href="#sobre" class="hover:text-pink-400">Sobre</a>
-                <a href="#servicos" class="hover:text-pink-400">Serviços</a>
-                <a href="#contato" class="hover:text-pink-400">Contato</a>
-            </nav>
+        <p class="section__description">
+          Bem-vindo ao Cabelo & Cia., o salão de beleza tradicional de Itapira, São Paulo, onde a paixão pela beleza encontra décadas de experiência. Desde 1994, transformamos autoestima em estilo com dedicação e profissionalismo incomparáveis. Nossa equipe acolhedora de especialistas experientes oferece um cuidado completo da beleza em um ambiente moderno e receptivo, perfeito para toda a família.
+        </p>
+        <p class="section__description">
+          Descubra nossos serviços abrangentes: cortes personalizados para homens, mulheres e crianças, tranças modernas e tradicionais, colorações vibrantes com produtos de alta qualidade, tratamentos revitalizantes para fios saudáveis, depilação à cera suave e serviços impecáveis de manicure e pedicure. Ao longo dos anos, construímos uma relação de confiança com nossa comunidade, combinando técnicas atualizadas com o calor de um espaço familiar. Venha nos visitar e sinta a diferença que um salão apaixonado pode fazer!
+        </p>
+      </div>
+    </section>
+
+    <section id="servicos" class="section section--services reveal">
+      <div class="container">
+        <header class="section__header section__header--center">
+          <h2 class="section__title">Serviços</h2>
+        </header>
+        <div class="service-grid">
+          <article class="service-card">
+            <header class="service-card__header">
+              <h3 class="service-card__title">Corte</h3>
+              <button class="service-card__toggle" type="button" aria-expanded="false" aria-controls="service-1-content" data-service-toggle data-target="service-1-content">
+                <span class="service-card__icon" aria-hidden="true">+</span>
+              </button>
+            </header>
+            <img class="service-card__image" src="img/CorteCabelo.webp" alt="Corte" loading="lazy" decoding="async" width="1200" height="675">
+            <div id="service-1-content" class="service-card__content" aria-hidden="true">
+              <p><strong>Profissional:</strong> Glaucia Cavallaro & Marta.</p>
+              <p><strong>Tipos de serviço:</strong> Cortes femininos, masculinos e infantis, tranças modernas e tradicionais.</p>
+              <p><strong>Preço:</strong> A partir de R$ 50,00.</p>
+              <p><strong>Duração:</strong> 30‑75 minutos.</p>
+              <p><strong>Observações:</strong> Técnicas modernas e estilos atualizados com as tendências de moda.</p>
+              <a class="service-card__action" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Quero este serviço!</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <header class="service-card__header">
+              <h3 class="service-card__title">Coloração</h3>
+              <button class="service-card__toggle" type="button" aria-expanded="false" aria-controls="service-2-content" data-service-toggle data-target="service-2-content">
+                <span class="service-card__icon" aria-hidden="true">+</span>
+              </button>
+            </header>
+            <img class="service-card__image" src="img/ColoracaoCabelo.webp" alt="Coloração" loading="lazy" decoding="async" width="1200" height="675">
+            <div id="service-2-content" class="service-card__content" aria-hidden="true">
+              <p><strong>Profissional:</strong> Glaucia Cavallaro.</p>
+              <p><strong>Tipos de serviço:</strong> Colorações vibrantes, tonalidades naturais e criativas.</p>
+              <p><strong>Preço:</strong> A partir de R$ 80,00.</p>
+              <p><strong>Duração:</strong> 1‑2 horas.</p>
+              <p><strong>Observações:</strong> Utilizamos produtos de alta qualidade para cabelos saudáveis e brilhantes.</p>
+              <a class="service-card__action" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Quero este serviço!</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <header class="service-card__header">
+              <h3 class="service-card__title">Hidratação</h3>
+              <button class="service-card__toggle" type="button" aria-expanded="false" aria-controls="service-3-content" data-service-toggle data-target="service-3-content">
+                <span class="service-card__icon" aria-hidden="true">+</span>
+              </button>
+            </header>
+            <img class="service-card__image" src="img/HidratacaoCabelo.webp" alt="Hidratação" loading="lazy" decoding="async" width="1200" height="675">
+            <div id="service-3-content" class="service-card__content" aria-hidden="true">
+              <p><strong>Profissional:</strong> Marta.</p>
+              <p><strong>Tipos de serviço:</strong> Tratamentos revitalizantes com máscaras hidratantes profissionais.</p>
+              <p><strong>Preço:</strong> A partir de R$ 30,00.</p>
+              <p><strong>Duração:</strong> 10‑35 minutos.</p>
+              <p><strong>Observações:</strong> Ideal para restaurar a saúde e o brilho natural dos cabelos danificados ou ressecados.</p>
+              <a class="service-card__action" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Quero este serviço!</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <header class="service-card__header">
+              <h3 class="service-card__title">Depilação com Cera</h3>
+              <button class="service-card__toggle" type="button" aria-expanded="false" aria-controls="service-4-content" data-service-toggle data-target="service-4-content">
+                <span class="service-card__icon" aria-hidden="true">+</span>
+              </button>
+            </header>
+            <img class="service-card__image" src="img/DepilacaoCera.webp" alt="Depilação com Cera" loading="lazy" decoding="async" width="1200" height="675">
+            <div id="service-4-content" class="service-card__content" aria-hidden="true">
+              <p><strong>Profissional:</strong> Cristiane Domingues Cavallaro.</p>
+              <p><strong>Tipos de serviço:</strong> Depilação com cera de alta qualidade.</p>
+              <p><strong>Preço:</strong> A partir de R$ 5,00 à R$ 65,00.</p>
+              <p><strong>Duração:</strong> 30‑75 minutos.</p>
+              <p><strong>Observações:</strong> Serviço realizado com profissionalismo e higiene em ambiente climatizado.</p>
+              <a class="service-card__action" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Quero este serviço!</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <header class="service-card__header">
+              <h3 class="service-card__title">Manicure</h3>
+              <button class="service-card__toggle" type="button" aria-expanded="false" aria-controls="service-5-content" data-service-toggle data-target="service-5-content">
+                <span class="service-card__icon" aria-hidden="true">+</span>
+              </button>
+            </header>
+            <img class="service-card__image" src="img/Manicure.webp" alt="Manicure" loading="lazy" decoding="async" width="1200" height="675">
+            <div id="service-5-content" class="service-card__content" aria-hidden="true">
+              <p><strong>Profissional:</strong> CONTRATANDO!</p>
+              <p><strong>Tipos de serviço:</strong> Manicure completa com limpeza, esmaltação e designs personalizados.</p>
+              <p><strong>Preço:</strong> A partir de R$ 00,00.</p>
+              <p><strong>Duração:</strong> - minutos.</p>
+              <p><strong>Observações:</strong> Utilizamos esmaltes premium para garantir durabilidade e cores impecáveis.</p>
+              <a class="service-card__action" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Quero Trabalhar!</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <header class="service-card__header">
+              <h3 class="service-card__title">Pedicure</h3>
+              <button class="service-card__toggle" type="button" aria-expanded="false" aria-controls="service-6-content" data-service-toggle data-target="service-6-content">
+                <span class="service-card__icon" aria-hidden="true">+</span>
+              </button>
+            </header>
+            <img class="service-card__image" src="img/Pedicure.webp" alt="Pedicure" loading="lazy" decoding="async" width="1200" height="675">
+            <div id="service-6-content" class="service-card__content" aria-hidden="true">
+              <p><strong>Profissional:</strong> CONTRATANDO!</p>
+              <p><strong>Tipos de serviço:</strong> Pedicure relaxante com limpeza profunda, hidratação e esmaltação.</p>
+              <p><strong>Preço:</strong> A partir de R$ 00,00.</p>
+              <p><strong>Duração:</strong> - minutos.</p>
+              <p><strong>Observações:</strong> Cuidado completo para pés bonitos, suaves e saudáveis o ano todo.</p>
+              <a class="service-card__action" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Quero Trabalhar!</a>
+            </div>
+          </article>
         </div>
-        <div id="overlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
-        <div class="h-16"></div>
-        <section class="relative w-full h-[75vh] overflow-hidden">
-            <div id="carousel" class="w-full h-full relative">
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" class="absolute w-full h-full object-cover opacity-100" alt="Salão" fetchpriority="high" loading="eager" decoding="async">
-                <img src="img/Sala4.jpg" class="absolute w-full h-full object-cover opacity-0" alt="Corte" loading="lazy" decoding="async" width="1200" height="675">
-                <img src="img/Lava3.jpg" class="absolute w-full h-full object-cover opacity-0" alt="Beleza" loading="lazy" decoding="async" width="1200" height="675">
-                <img src="img/Depila2.jpg" class="absolute w-full h-full object-cover opacity-0" alt="Cabelo" loading="lazy" decoding="async" width="1200" height="675">
-                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" class="absolute w-full h-full object-cover opacity-0" alt="Estética" loading="lazy" decoding="async" width="1200" height="675">
-            </div>
-            <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center">
-                <h1 class="titulo text-4xl md:text-6xl mb-4 text-pink-300">Realce Sua Beleza</h1>
-                <p class="mb-6">Transformamos autoestima em estilo</p>
-                <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="bg-pink-600 px-6 py-3 rounded btn-hover btn-primary">Agendar horário</a>
-            </div>
-        </section>
-        <section id="sobre" class="p-8 md:p-16 text-center fade-up">
-            <h2 class="titulo text-3xl text-pink-500 mb-4">Sobre nós</h2>
-            <p class="max-w-2xl mx-auto hover:text-pink-900 transition-colors duration-500 transform transition-transform duration-300 hover:scale-105">
-                Bem-vindo ao Cabelo & Cia., o salão de beleza tradicional de Itapira, São Paulo, 
-                onde a paixão pela beleza encontra décadas de experiência. 
-                Desde 1994, transformamos autoestima em estilo com dedicação e profissionalismo incomparáveis. 
-                Nossa equipe acolhedora de especialistas experientes oferece um cuidado completo da beleza em um ambiente moderno 
-                e receptivo, perfeito para toda a família.<br><br>
-                Descubra nossos serviços abrangentes: cortes personalizados para homens, mulheres e crianças, tranças modernas 
-                e tradicionais, colorações vibrantes com produtos de alta qualidade, tratamentos revitalizantes para fios saudáveis, 
-                depilação à cera suave e serviços impecáveis de manicure e pedicure. 
-                Ao longo dos anos, construímos uma relação de confiança com nossa comunidade, combinando técnicas atualizadas 
-                com o calor de um espaço familiar. Venha nos visitar e sinta a diferença que um salão apaixonado pode fazer!
-            </p>
-        </section>
-        <section id="servicos" class="p-8 md:p-16 bg-pink-50 fade-up">
-            <h2 class="titulo text-3xl text-pink-500 mb-10 text-center">Serviços</h2>
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="bg-white rounded shadow overflow-hidden service-card">                    
-                    <div class="service-header">
-                        <span class="font-bold text-lg">Corte</span>
-                        <span class="service-toggle">▼</span>
-                    </div>                    
-                    <picture><img src="img/CorteCabelo.webp" class="w-full h-40 object-cover" alt="Corte"></picture>                    
-                    <div class="service-content">
-                        <div class="service-description ">
-                            <p><strong>Profissional:</strong> Glaucia Cavallaro & Marta</p>
-                            <p><strong>Tipos de serviço:</strong> Cortes femininos, masculinos e infantis, tranças modernas e tradicionais</p>
-                            <p><strong>Preço:</strong> A partir de R$ 50,00</p>
-                            <p><strong>Duração:</strong> 30-75 minutos.</p>
-                            <p><strong>Observações:</strong> Técnicas modernas e estilos atualizados com as tendências de moda.</p>
-                            <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="link card service">Quero este serviço!</a>
-                        </div>
-                    </div>                    
-                </div>
-                <div class="bg-white rounded shadow overflow-hidden service-card">                    
-                    <div class="service-header">
-                        <span class="font-bold text-lg">Coloração</span>
-                        <span class="service-toggle">▼</span>
-                    </div>                    
-                    <picture><img src="img/ColoracaoCabelo.webp" class="w-full h-40 object-cover" alt="Coloração"></picture>                    
-                    <div class="service-content">
-                        <div class="service-description">
-                            <p><strong>Profissional:</strong> Glaucia Cavallaro</p>
-                            <p><strong>Tipos de serviço:</strong> Colorações vibrantes, tonalidades naturais e criativas</p>
-                            <p><strong>Preço:</strong> A partir de R$ 80,00</p>
-                            <p><strong>Duração:</strong> 1-2 horas.</p>
-                            <p><strong>Observações:</strong> Utilizamos produtos de alta qualidade para cabelos saudáveis e brilhantes.</p>
-                            <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="link card service">Quero este serviço!</a>
-                        </div>
-                    </div>                    
-                </div>
-                <div class="bg-white rounded shadow overflow-hidden service-card">                    
-                    <div class="service-header">
-                        <span class="font-bold text-lg">Hidratação</span>
-                        <span class="service-toggle">▼</span>
-                    </div>                    
-                    <picture><img src="img/HidratacaoCabelo.webp" class="w-full h-40 object-cover" alt="Hidratação"></picture>
-                    <div class="service-content">
-                        <div class="service-description">
-                            <p><strong>Profissional:</strong> Marta</p>
-                            <p><strong>Tipos de serviço:</strong> Tratamentos revitalizantes com máscaras hidratantes profissionais</p>
-                            <p><strong>Preço:</strong> A partir de R$ 30,00</p>
-                            <p><strong>Duração:</strong> 10-35 minutos.</p>
-                            <p><strong>Observações:</strong> Ideal para restaurar a saúde e o brilho natural dos cabelos danificados ou ressecados.</p>
-                            <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="link card service">Quero este serviço!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded shadow overflow-hidden service-card">
-                    <div class="service-header">
-                        <span class="font-bold text-lg">Depilação com Cera</span>
-                        <span class="service-toggle">▼</span>
-                    </div>
-                    <picture><img src="img/DepilacaoCera.webp" class="w-full h-40 object-cover" alt="Depilação com Cera"></picture>
-                    <div class="service-content">
-                        <div class="service-description">
-                            <p><strong>Profissional:</strong> Cristiane Domingues Cavallaro</p>
-                            <p><strong>Tipos de serviço:</strong> Depilação com cera de alta qualidade</p>
-                            <p><strong>Preço:</strong> A partir de R$ 5,00 à R$ 65,00</p>
-                            <p><strong>Duração:</strong> 30-75 minutos.</p>
-                            <p><strong>Observações:</strong> Serviço realizado com profissionalismo e higiene em ambiente climatizado.</p>
-                            <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="link card service">Quero este serviço!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded shadow overflow-hidden service-card">
-                    <div class="service-header">
-                        <span class="font-bold text-lg">Manicure</span>
-                        <span class="service-toggle">▼</span>
-                    </div>
-                    <picture><img src="img/Manicure.webp" class="w-full h-40 object-cover" alt="Manicure"></picture>
-                    <div class="service-content">
-                        <div class="service-description">
-                            <p><strong>Profissional:</strong> CONTRATANDO!</p>
-                            <p><strong>Tipos de serviço:</strong> Manicure completa com limpeza, esmaltação e designs personalizados</p>
-                            <p><strong>Preço:</strong> A partir de R$ 00,00</p>
-                            <p><strong>Duração:</strong> - minutos.</p>
-                            <p><strong>Observações:</strong> Utilizamos esmaltes premium para garantir durabilidade e cores impecáveis.</p>
-                            <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="link card service">Quero Trabalhar!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded shadow overflow-hidden service-card">
-                    <div class="service-header">
-                        <span class="font-bold text-lg">Pedicure</span>
-                        <span class="service-toggle">▼</span>
-                    </div>
-                    <picture><img src="img/Pedicure.webp" class="w-full h-40 object-cover" alt="Pedicure"></picture>
-                    <div class="service-content">
-                        <div class="service-description">
-                            <p><strong>Profissional:</strong> CONTRATANDO!</p>
-                            <p><strong>Tipos de serviço:</strong> Pedicure relaxante com limpeza profunda, hidratação e esmaltação</p>
-                            <p><strong>Preço:</strong> A partir de R$ 00,00</p>
-                            <p><strong>Duração:</strong> - minutos.</p>
-                            <p><strong>Observações:</strong> Cuidado completo para pés bonitos, suaves e saudáveis o ano todo.</p>
-                            <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="link card service">Quero Trabalhar!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="p-8 md:p-16 fade-up">
-            <h2 class="titulo text-3xl text-pink-500 mb-8 text-center">Galeria</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <img src="img/Fora1.jpg" class="rounded cursor-pointer gallery-img" alt="Imagem 1" loading="lazy" decoding="async" width="400" height="300">
-                <img src="img/Depila3.jpg" class="rounded cursor-pointer gallery-img" alt="Imagem 2" loading="lazy" decoding="async" width="400" height="300">
-                <img src="img/Sala1.jpg" class="rounded cursor-pointer gallery-img" alt="Imagem 3" loading="lazy" decoding="async" width="400" height="300">
-                <img src="img/Lava2.jpg" class="rounded cursor-pointer gallery-img" alt="Imagem 4" loading="lazy" decoding="async" width="400" height="300">
-                <img src="img/Sala5.jpg" class="rounded cursor-pointer gallery-img" alt="Imagem 4" loading="lazy" decoding="async" width="400" height="300">
-            </div>
-        </section>
-        <div id="lightbox" class="fixed inset-0 bg-black/90 items-center justify-center z-50 p-4 hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visualização de imagem">
-            <button id="closeLightbox" class="absolute top-5 right-5 text-white text-3xl z-50" aria-label="Fechar imagem">&times;</button>
-            <button id="prevBtn" class="absolute left-3 md:left-10 text-white text-3xl md:text-5xl z-50" aria-label="Imagem anterior">&#10094;</button>
-            <img id="lightboxImg" class="max-w-full max-h-[90vh] rounded shadow-lg select-none" alt="Imagem ampliada" loading="lazy" decoding="async">
-            <button id="nextBtn" class="absolute right-3 md:right-10 text-white text-3xl md:text-5xl z-50" aria-label="Próxima imagem">&#10095;</button>
+      </div>
+    </section>
+
+    <section class="section section--gallery reveal">
+      <div class="container">
+        <header class="section__header section__header--center">
+          <h2 class="section__title">Galeria</h2>
+        </header>
+        <div class="gallery-grid">
+          <button class="gallery-grid__item" type="button" data-gallery-index="0" aria-label="Abrir imagem 1">
+            <img src="img/Fora1.jpg" alt="Salão externo" loading="lazy" decoding="async" width="400" height="300">
+          </button>
+          <button class="gallery-grid__item" type="button" data-gallery-index="1" aria-label="Abrir imagem 2">
+            <img src="img/Depila3.jpg" alt="Área de depilação" loading="lazy" decoding="async" width="400" height="300">
+          </button>
+          <button class="gallery-grid__item" type="button" data-gallery-index="2" aria-label="Abrir imagem 3">
+            <img src="img/Sala1.jpg" alt="Interior do salão" loading="lazy" decoding="async" width="400" height="300">
+          </button>
+          <button class="gallery-grid__item" type="button" data-gallery-index="3" aria-label="Abrir imagem 4">
+            <img src="img/Lava2.jpg" alt="Área de lavagem" loading="lazy" decoding="async" width="400" height="300">
+          </button>
+          <button class="gallery-grid__item" type="button" data-gallery-index="4" aria-label="Abrir imagem 5">
+            <img src="img/Sala5.jpg" alt="Ambiente do salão" loading="lazy" decoding="async" width="400" height="300">
+          </button>
         </div>
-        <section id="contato" class="p-8 md:p-16 text-center bg-pink-50 fade-up">
-            <h2 class="titulo text-3xl text-pink-500 mb-6">Contato</h2>
-            <div class="space-y-3 max-w-md mx-auto">
-                <a href="https://www.facebook.com/Glaucavallaro" target="_blank" rel="noopener noreferrer" class="block bg-blue-600 text-white py-3 rounded hover:bg-blue-700">Facebook</a>
-                <a href="https://www.instagram.com/cabeloecia" target="_blank" rel="noopener noreferrer" class="block bg-pink-500 text-white py-3 rounded hover:bg-pink-600">Instagram</a>
-                <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" class="block bg-green-500 text-white py-3 rounded hover:bg-green-600">WhatsApp</a>
-            </div>
-        </section>
-        <a href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg text-xl whatsapp-float z-50" title="Fale conosco no WhatsApp">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        </a>
-        <div class="h-20 md:hidden"></div>
-        <footer class="bg-black text-white text-center p-4">
-            © 2026 Cabelo &amp; Cia Itapira
-            <p>Todos os direitos reservados. | Desenvolvido por Rafael Cavallaro Rossi</p>
-        </footer>
-        <script defer>
-        document.addEventListener("DOMContentLoaded", () => {
-            const slides = document.querySelectorAll('#carousel img');
-            if (slides.length) {
-                let sIndex = 0;
-                slides.forEach((s, i) => s.style.opacity = i === 0 ? '1' : '0');
-                setInterval(() => {
-                    slides[sIndex].style.opacity = 0;
-                    sIndex = (sIndex + 1) % slides.length;
-                    requestAnimationFrame(() => slides[sIndex].style.opacity = 1);
-                }, 4000);
-            }
-            const menuBtn = document.getElementById('menuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const closeMenu = document.getElementById('closeMenu');
-            const overlay = document.getElementById('overlay');
-            const onMenuKeydown = (e) => { if (e.key === 'Escape') closeMenuFunc(); };
-            function openMenu() {
-                mobileMenu?.classList.remove('translate-x-full');
-                mobileMenu?.classList.add('is-open');
-                overlay?.classList.remove('hidden');
-                menuBtn?.setAttribute('aria-expanded', 'true');
-                mobileMenu?.setAttribute('aria-hidden', 'false');
-                const firstLink = mobileMenu?.querySelector('nav a');
-                firstLink?.focus();
-                document.addEventListener('keydown', onMenuKeydown);
-            }
-            function closeMenuFunc() {
-                mobileMenu?.classList.add('translate-x-full');
-                mobileMenu?.classList.remove('is-open');
-                overlay?.classList.add('hidden');
-                menuBtn?.setAttribute('aria-expanded', 'false');
-                mobileMenu?.setAttribute('aria-hidden', 'true');
-                menuBtn?.focus();
-                document.removeEventListener('keydown', onMenuKeydown);
-            }
-            menuBtn?.addEventListener('click', () => {
-                const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                if (expanded) closeMenuFunc(); else openMenu();
-            });
-            closeMenu?.addEventListener('click', closeMenuFunc);
-            overlay?.addEventListener('click', closeMenuFunc);
-            const serviceCards = document.querySelectorAll('.service-card');
-            serviceCards.forEach(card => {
-                const header = card.querySelector('.service-header');
-                const content = card.querySelector('.service-content');
-                const toggle = card.querySelector('.service-toggle');
-                header.addEventListener('click', () => {
-                    const isOpen = card.classList.contains('open');
-                    serviceCards.forEach(c => {
-                        c.classList.remove('open');
-                        c.querySelector('.service-content').style.maxHeight = null;
-                        c.querySelector('.service-toggle').classList.remove('open');
-                    });
-                    if (!isOpen) {
-                        card.classList.add('open');
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        toggle.classList.add('open');
-                    }
-                });
-            });
-            const galleryImages = Array.from(document.querySelectorAll('.gallery-img'));
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightboxImg');
-            const closeLightbox = document.getElementById('closeLightbox');
-            const nextBtn = document.getElementById('nextBtn');
-            const prevBtn = document.getElementById('prevBtn');
-            let currentIndex = 0;
-            let prevActiveElement = null;
-            let removeLightboxTrap = null;
-            function trapFocus(container) {
-                const focusable = container.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
-                if (!focusable.length) return () => {};
-                const first = focusable[0];
-                const last = focusable[focusable.length - 1];
-                const handler = (e) => {
-                    if (e.key !== 'Tab') return;
-                    if (e.shiftKey) {
-                        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-                    } else {
-                        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-                    }
-                };
-                document.addEventListener('keydown', handler);
-                return () => document.removeEventListener('keydown', handler);
-            }
-            if (galleryImages.length) {
-                const showImage = () => { if (lightboxImg) lightboxImg.src = galleryImages[currentIndex].src; };
-                const openModal = () => {
-                    if (!lightbox) return;
-                    prevActiveElement = document.activeElement;
-                    lightbox.classList.remove('hidden');
-                    lightbox.classList.add('flex');
-                    document.body.style.overflow = 'hidden';
-                    lightbox.setAttribute('aria-hidden', 'false');
-                    removeLightboxTrap = trapFocus(lightbox);
-                    closeLightbox?.focus();
-                };
-                const closeModal = () => {
-                    if (!lightbox) return;
-                    lightbox.classList.add('hidden');
-                    lightbox.classList.remove('flex');
-                    document.body.style.overflow = 'auto';
-                    lightbox.setAttribute('aria-hidden', 'true');
-                    if (removeLightboxTrap) removeLightboxTrap();
-                    if (prevActiveElement?.focus) prevActiveElement.focus();
-                };
-                const nextImage = () => { currentIndex = (currentIndex + 1) % galleryImages.length; showImage(); };
-                const prevImage = () => { currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; showImage(); };
-                galleryImages.forEach((img, idx) => img.addEventListener('click', () => { currentIndex = idx; showImage(); openModal(); }));
-                nextBtn?.addEventListener('click', nextImage);
-                prevBtn?.addEventListener('click', prevImage);
-                closeLightbox?.addEventListener('click', closeModal);
-                lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeModal(); });
-                document.addEventListener('keydown', (e) => {
-                    if (!lightbox || lightbox.classList.contains('hidden')) return;
-                    if (e.key === 'ArrowRight') nextImage();
-                    if (e.key === 'ArrowLeft') prevImage();
-                    if (e.key === 'Escape') closeModal();
-                });
-            }
-            const revealElements = document.querySelectorAll('.fade-up');
-            if (revealElements.length) {
-                const observer = new IntersectionObserver((entries, obs) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('show');
-                            obs.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15 });
-                revealElements.forEach(el => observer.observe(el));
-            }
-        });
-        </script>
-    </body>
+      </div>
+    </section>
+
+    <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visualização de imagem">
+      <button class="lightbox__close" type="button" aria-label="Fechar imagem" data-lightbox-close>&times;</button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Imagem anterior" data-lightbox-prev>&#10094;</button>
+      <img class="lightbox__image" src="" alt="Visualização ampliada" loading="lazy" decoding="async">
+      <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Próxima imagem" data-lightbox-next>&#10095;</button>
+    </div>
+
+    <section id="contato" class="section section--contact reveal">
+      <div class="container">
+        <header class="section__header section__header--center">
+          <h2 class="section__title">Contato</h2>
+        </header>
+        <div class="contact-actions">
+          <a class="button button--social button--facebook" href="https://www.facebook.com/Glaucavallaro" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="button button--social button--instagram" href="https://www.instagram.com/cabeloecia" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="button button--social button--whatsapp" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp" title="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <footer class="site-footer">
+    <div class="container site-footer__content">
+      <p>© 2026 Cabelo &amp; Cia Itapira</p>
+      <p>Todos os direitos reservados. | Desenvolvido por Rafael Cavallaro Rossi</p>
+    </div>
+  </footer>
+
+  <script defer src="js/app.js"></script>
+</body>
 </html>
