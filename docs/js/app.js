@@ -153,3 +153,32 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach(el => observer.observe(el));
     }
 });
+function selecionarServico(servico) {
+    document.getElementById('servicoSelecionado').value = servico;
+    document.getElementById('mensagem').value = `Olá! Gostaria de agendar um horário para: ${servico}`;
+    document.getElementById('agendamento').scrollIntoView({ behavior: 'smooth' });
+}
+document.getElementById('formAgendamento').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    const servico = document.getElementById('servicoSelecionado').value;
+    const erro = document.getElementById('erro'); 
+    erro.classList.add('hidden');
+    if (!nome || !telefone) {
+        erro.textContent = 'Preencha nome e WhatsApp.';
+        erro.classList.remove('hidden');
+        return;
+    }
+    const telefoneLimpo = telefone.replace(/\D/g, '');
+    if (telefoneLimpo.length < 10) {
+        erro.textContent = 'Digite um WhatsApp válido.';
+        erro.classList.remove('hidden');
+        return;
+    }
+    const mensagem = encodeURIComponent(
+        `Nome: ${nome}\nServiço: ${servico}\nTelefone: ${telefone}`
+    );
+    const url = `https://wa.me/5519991714448?text=${mensagem}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+});
