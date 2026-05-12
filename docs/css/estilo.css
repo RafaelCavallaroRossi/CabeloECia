@@ -219,10 +219,31 @@ a:hover {
 }
 
 .service-description {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: #4b5563;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0.5rem 0 0 0;
+    text-align: justify;
+}
+
+.service-description p {
+    margin: 0.4rem 0;
+}
+
+.service-description strong {
+    color: #ec4899;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .service-description {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .service-description p {
+        margin: 0.3rem 0;
+    }
 }
 
 
@@ -485,11 +506,32 @@ a:hover {
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-auto-rows: 1fr;
     gap: 20px;
     margin-top: 30px;
     align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
 }
 
 .service-card {
@@ -498,6 +540,12 @@ a:hover {
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     will-change: transform;
     overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        min-height: auto;
+    }
 }
 
 .service-card.open {
@@ -516,11 +564,23 @@ a:hover {
     z-index: 2;
 }
 
+@media (max-width: 768px) {
+    .service-card__header {
+        padding: 0.75rem;
+    }
+}
+
 .service-card__title {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     color: #111;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .service-card__title {
+        font-size: 1rem;
+    }
 }
 
 .service-card__toggle {
@@ -536,6 +596,14 @@ a:hover {
     cursor: pointer;
     transition: transform 0.3s ease;
     padding: 0;
+}
+
+@media (max-width: 768px) {
+    .service-card__toggle {
+        width: 20px;
+        height: 20px;
+        font-size: 0.9rem;
+    }
 }
 
 .service-card__toggle.open {
@@ -554,6 +622,12 @@ a:hover {
     transition: transform 0.5s ease;
 }
 
+@media (max-width: 768px) {
+    .service-card__image {
+        height: 150px;
+    }
+}
+
 .service-card:hover .service-card__image {
     transform: scale(1.08);
 }
@@ -566,18 +640,36 @@ a:hover {
     padding: 0 1rem;
 }
 
+@media (max-width: 768px) {
+    .service-card__content {
+        padding: 0 0.75rem;
+    }
+}
+
 .service-card.open .service-card__content {
     opacity: 1;
     padding: 0 1rem 1rem 1rem;
 }
 
+@media (max-width: 768px) {
+    .service-card.open .service-card__content {
+        padding: 0 0.75rem 0.75rem 0.75rem;
+    }
+}
+
 .service-card__action {
     display: inline-block;
-    margin-top: 15px;
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .service-card__action {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
 }
 
 .service-card__action:hover {
