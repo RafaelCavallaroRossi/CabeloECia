@@ -5,7 +5,6 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    /**/    
     line-height: 1.6;
 }
 
@@ -219,14 +218,13 @@ a:hover {
 }
 
 .service-description {
-    font-size: 0.8rem;
     color: #4b5563;
     line-height: 1.5;
     margin: 0.5rem 0 0 0;
     text-align: justify;
 }
 
-.service-description p {
+.service-description h4 {
     margin: 0.4rem 0;
 }
 
@@ -241,7 +239,7 @@ a:hover {
         line-height: 1.5;
     }
 
-    .service-description p {
+    .service-description h4 {
         margin: 0.3rem 0;
     }
 }
@@ -385,8 +383,6 @@ a:hover {
     text-align: center;
     padding: 20px;
 }
-
-/* BEM Methodology Classes */
 
 .button {
     display: inline-block;
@@ -575,6 +571,7 @@ a:hover {
     font-size: 1.1rem;
     color: #111;
     margin: 0;
+    width: 1px;
 }
 
 @media (max-width: 768px) {
@@ -613,6 +610,12 @@ a:hover {
 .service-card__icon {
     font-size: 1.2rem;
     font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.service-card__icon:hover {
+    text-shadow: #25d366 0px 0px 10px;
 }
 
 .service-card__image {
@@ -662,6 +665,7 @@ a:hover {
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
+    max-width: 400px;
     transition: all 0.3s ease;
 }
 
@@ -673,6 +677,7 @@ a:hover {
 }
 
 .service-card__action:hover {
+    text-shadow: #25d366 0px 0px 10px;
     transform: translateX(5px);
 }
 
