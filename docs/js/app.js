@@ -152,4 +152,105 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { threshold: 0.15 });
         revealElements.forEach(el => observer.observe(el));
     }
+
+    // Modal de agendamento: abre formulário em popup
+    const formModal = document.getElementById('formModal');
+    const closeFormModalBtn = document.getElementById('closeFormModal');
+    const formAgendamento = document.getElementById('formAgendamento');
+    let removeFormTrap = null;
+    let prevActiveElementModal = null;
+
+    const defaultProfessionalByService = {
+        'Corte': 'Glaucia Cavallaro',
+        'Coloração': 'Glaucia Cavallaro',
+        'Hidratação': 'Marta',
+        'Depilação com Cera': 'Cristiane Domingues Cavallaro',
+        'Manicure': 'Cristiane Domingues Cavallaro',
+        'Pedicure': 'Cristiane Domingues Cavallaro'
+    };
+
+    function openFormModal(servico) {
+        if (!formModal) return;
+        prevActiveElementModal = document.activeElement;
+        formModal.classList.remove('hidden');
+        formModal.classList.add('flex', 'items-center', 'justify-center');
+        document.body.style.overflow = 'hidden';
+        formModal.setAttribute('aria-hidden', 'false');
+        removeFormTrap = trapFocus(formModal);
+        const servicoInput = document.getElementById('servicoSelecionado');
+        const mensagemInput = document.getElementById('mensagem');
+        if (servicoInput) servicoInput.value = servico || '';
+        if (mensagemInput) mensagemInput.value = `Olá! Gostaria de agendar um horário para: ${servico || ''}`;
+        const nomeInput = document.getElementById('nome');
+        const profissionalSelect = document.getElementById('profissional');
+        const defaultProf = defaultProfessionalByService[servico] || 'Qualquer profissional';
+        if (profissionalSelect) {
+            const opt = Array.from(profissionalSelect.options).find(o => o.value === defaultProf || o.text === defaultProf);
+            if (opt) profissionalSelect.value = opt.value; else profissionalSelect.selectedIndex = 0;
+        }
+        nomeInput?.focus();
+    }
+
+    function closeFormModal() {
+        if (!formModal) return;
+        formModal.classList.add('hidden');
+        formModal.classList.remove('flex', 'items-center', 'justify-center');
+        document.body.style.overflow = 'auto';
+        formModal.setAttribute('aria-hidden', 'true');
+        if (removeFormTrap) removeFormTrap();
+        prevActiveElementModal?.focus();
+    }
+
+    // expõe função global para botão inline onclick
+    window.selecionarServico = (servico) => { openFormModal(servico); };
+
+    closeFormModalBtn?.addEventListener('click', closeFormModal);
+    formModal?.addEventListener('click', (e) => { if (e.target === formModal) closeFormModal(); });
+    document.addEventListener('keydown', (e) => { if (!formModal || formModal.classList.contains('hidden')) return; if (e.key === 'Escape') closeFormModal(); });
+
+    // handler do formulário (abre WhatsApp) usando o número do profissional selecionado
+    formAgendamento?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('nome').value.trim();
+        const profissionalSelect = document.getElementById('profissional');
+        const profissional = profissionalSelect?.value || '';
+        const servico = document.getElementById('servicoSelecionado').value;
+        const erro = document.getElementById('erro');
+        erro.classList.add('hidden');
+        if (!nome || !profissional) {
+            erro.textContent = 'Preencha seu nome.';
+            erro.classList.remove('hidden');
+            return;
+        } else {
+            if (!nome.match(/^[a-zA-Z\s]+$/)) {
+            erro.textContent = 'Nome deve conter apenas letras e espaços.';
+            erro.classList.remove('hidden');
+            return;
+        } else{
+            if (!nome.length || nome.length > 50 || nome.length < 2) {
+            erro.textContent = 'Nome deve ter entre 2 e 50 caracteres.';
+            erro.classList.remove('hidden');
+            return;
+                }
+            }
+        }
+
+        const telefoneData = profissionalSelect?.selectedOptions?.[0]?.dataset?.phone || '';
+        const telefoneLimpo = telefoneData.replace(/\D/g, '');
+        if (telefoneLimpo.length < 10) {
+            erro.textContent = 'Número do profissional não configurado.';
+            erro.classList.remove('hidden');
+            return;
+        }
+        const mensagem = encodeURIComponent(
+            `Nome: ${nome}\nServiço: ${servico}\nMensagem: ${document.getElementById('mensagem').value}`
+        );
+        let waNumber = telefoneLimpo;
+        if (!waNumber.startsWith('55')) waNumber = '55' + waNumber;
+        const waUrl = `https://wa.me/${waNumber}?text=${mensagem}`;
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+        closeFormModal();
+        formAgendamento.reset();
+    });
+
 });
