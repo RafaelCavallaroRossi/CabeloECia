@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = toggle.closest('.service-card');
             const isOpen = card.classList.contains('open');
             
-            // Close all other cards
             document.querySelectorAll('.service-card').forEach(c => {
                 if (c !== card) {
                     c.classList.remove('open');
@@ -64,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
             
-            // Toggle current card
             if (!isOpen) {
                 card.classList.add('open');
                 contentElement.style.maxHeight = contentElement.scrollHeight + "px";
@@ -153,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach(el => observer.observe(el));
     }
 
-    // Modal de agendamento: abre formulário em popup
     const formModal = document.getElementById('formModal');
     const closeFormModalBtn = document.getElementById('closeFormModal');
     const formAgendamento = document.getElementById('formAgendamento');
@@ -201,14 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
         prevActiveElementModal?.focus();
     }
 
-    // expõe função global para botão inline onclick
     window.selecionarServico = (servico) => { openFormModal(servico); };
 
     closeFormModalBtn?.addEventListener('click', closeFormModal);
     formModal?.addEventListener('click', (e) => { if (e.target === formModal) closeFormModal(); });
     document.addEventListener('keydown', (e) => { if (!formModal || formModal.classList.contains('hidden')) return; if (e.key === 'Escape') closeFormModal(); });
 
-    // handler do formulário (abre WhatsApp) usando o número do profissional selecionado
     formAgendamento?.addEventListener('submit', function(e) {
         e.preventDefault();
         const nome = document.getElementById('nome').value.trim();
@@ -252,5 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
         closeFormModal();
         formAgendamento.reset();
     });
+    // --- Início: Atualizador de horário de funcionamento (status visual) ---
+    (function() {
+        const tabela = document.getElementById('horarioTabela');
+        if (!tabela) return;
 
-});
+        const normalize = (s = '') => s.normalize ? s.normalize('NFD').replace(/[
