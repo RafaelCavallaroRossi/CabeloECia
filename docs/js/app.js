@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = toggle.closest('.service-card');
             const isOpen = card.classList.contains('open');
             
-            // Close all other cards
             document.querySelectorAll('.service-card').forEach(c => {
                 if (c !== card) {
                     c.classList.remove('open');
@@ -64,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
             
-            // Toggle current card
             if (!isOpen) {
                 card.classList.add('open');
                 contentElement.style.maxHeight = contentElement.scrollHeight + "px";
@@ -153,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
         revealElements.forEach(el => observer.observe(el));
     }
 
-    // Modal de agendamento: abre formulário em popup
     const formModal = document.getElementById('formModal');
     const closeFormModalBtn = document.getElementById('closeFormModal');
     const formAgendamento = document.getElementById('formAgendamento');
@@ -201,14 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
         prevActiveElementModal?.focus();
     }
 
-    // expõe função global para botão inline onclick
     window.selecionarServico = (servico) => { openFormModal(servico); };
 
     closeFormModalBtn?.addEventListener('click', closeFormModal);
     formModal?.addEventListener('click', (e) => { if (e.target === formModal) closeFormModal(); });
     document.addEventListener('keydown', (e) => { if (!formModal || formModal.classList.contains('hidden')) return; if (e.key === 'Escape') closeFormModal(); });
 
-    // handler do formulário (abre WhatsApp) usando o número do profissional selecionado
     formAgendamento?.addEventListener('submit', function(e) {
         e.preventDefault();
         const nome = document.getElementById('nome').value.trim();
@@ -253,4 +248,126 @@ document.addEventListener("DOMContentLoaded", () => {
         formAgendamento.reset();
     });
 
+    (function() {
+        const tabela = document.getElementById('horarioTabela');
+        if (!tabela) return;
+        const normalize = (s = '') => s.normalize ? s.normalize('NFD').replace(/[nul-\u036f]/g, '').replace(/\s+/g,' ').trim().toLowerCase() : s.toLowerCase();
+        const removeDiacritics = (s = '') => s.normalize ? s.normalize('NFD').replace(/[nul-\u036f]/g, '') : s;
+        const normDay = (s = '') => removeDiacritics(s).toLowerCase().replace(/[^a-z\-\s]/g,'').split(/\s|-/)[0];
+        const dayMap = { domingo:0, segunda:1, terca:2, quarta:3, quinta:4, sexta:5, sabado:6 };
+        function parseTimeToMinutes(str) {
+            if (!str) return null;
+            const m = str.match(/(\d{1,2}):(\d{2})/);
+            if (!m) return null;
+            const hh = parseInt(m[1], 10);
+            const mm = parseInt(m[2], 10);
+            return hh * 60 + mm;
+        }
+        function parseSchedule() {
+            const schedule = new Array(7).fill(null);
+            const rows = tabela.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if (!tds || tds.length < 2) return;
+                const dayText = cleanDay(tds[0].textContent || '');
+                const dayIndex = dayMap[dayText];
+                if (typeof dayIndex === 'undefined') return;
+                const timesText = (tds[1].textContent || '').trim();
+                if (/fech/i.test(timesText)) { schedule[dayIndex] = null; return; }
+                const normalized = timesText.replace(/[–—−]/g, '-');
+                const parts = normalized.split('-').map(s => s.trim());
+                const open = parseTimeToMinutes(parts[0]);
+                const close = parseTimeToMinutes(parts[1]);
+                if (open === null || close === null) { schedule[dayIndex] = null; return; }
+                schedule[dayIndex] = { open, close, openStr: parts[0], closeStr: parts[1] };
+            });
+            return schedule;
+        }
+        function cleanDay(s = '') {
+            const base = (s && s.normalize) ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : (s || '');
+            return base.toLowerCase().replace(/[^a-z\s-]/g, '').split(/\s|-/)[0];
+        }
+        function clearRowHighlights() {
+            const rows = tabela.querySelectorAll('tbody tr');
+            rows.forEach(r => {
+                r.classList.remove('bg-green-50','bg-yellow-50','bg-red-50');
+                const first = r.querySelector('td:nth-child(1)');
+                const second = r.querySelector('td:nth-child(2)');
+                if (first) first.classList.remove('text-green-600','text-yellow-500','text-red-600','font-semibold');
+                if (second) second.classList.remove('text-green-600','text-yellow-500','text-red-600','font-semibold');
+            });
+        }
+        function updateStatus() {
+            const schedule = parseSchedule();
+            let day;
+            let minutes;
+            try {
+                const timeZone = 'America/Sao_Paulo';
+                const dtf = new Intl.DateTimeFormat('pt-BR', { timeZone, weekday: 'long', hour: '2-digit', minute: '2-digit', hour12: false });
+                const parts = dtf.formatToParts(new Date());
+                let weekdayPart = '', hourPart = '', minutePart = '';
+                parts.forEach(p => {
+                    if (p.type === 'weekday') weekdayPart = p.value;
+                    if (p.type === 'hour') hourPart = p.value;
+                    if (p.type === 'minute') minutePart = p.value;
+                });
+                const tzDay = (typeof dayMap[cleanDay(weekdayPart)] !== 'undefined') ? dayMap[cleanDay(weekdayPart)] : null;
+                if (tzDay === null || hourPart === '' || minutePart === '') throw new Error('timezone parts missing');
+                day = tzDay;
+                minutes = (parseInt(hourPart, 10) || 0) * 60 + (parseInt(minutePart, 10) || 0);
+            } catch (err) {
+                const nowLocal = new Date();
+                day = nowLocal.getDay();
+                minutes = nowLocal.getHours() * 60 + nowLocal.getMinutes();
+            }
+            const today = schedule[day];
+            let state = 'closed';
+            let text = 'Fechado';
+            if (today) {
+                const open = today.open;
+                const close = today.close;
+                if (minutes >= open && minutes < close) {
+                    const minsToClose = close - minutes;
+                    if (minsToClose <= 10) { state = 'pre'; text = `Fechando em ${minsToClose} min`; }
+                    else { state = 'open'; text = `Aberto agora — fecha às ${today.closeStr}`; }
+                } else if (minutes < open && (open - minutes) <= 10) {
+                    state = 'pre';
+                    text = `Abrindo em ${open - minutes} min`;
+                } else {
+                    state = 'closed';
+                    text = `Fechado — abre às ${today.openStr}`;
+                }
+            } else {
+                state = 'closed';
+                text = 'Fechado';
+            }
+            clearRowHighlights();
+            const rows = tabela.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('td');
+                if (!tds || tds.length < 2) return;
+                const dayText = cleanDay(tds[0].textContent || '');
+                const idx = dayMap[dayText];
+                if (idx === day) {
+                    const first = row.querySelector('td:nth-child(1)');
+                    const second = row.querySelector('td:nth-child(2)');
+                    if (state === 'open') {
+                        row.classList.add('bg-green-50');
+                        if (first) first.classList.add('text-green-600','font-semibold');
+                        if (second) second.classList.add('text-green-600','font-semibold');
+                    } else if (state === 'pre') {
+                        row.classList.add('bg-yellow-50');
+                        if (first) first.classList.add('text-yellow-500','font-semibold');
+                        if (second) second.classList.add('text-yellow-500','font-semibold');
+                    } else {
+                        row.classList.add('bg-red-50');
+                        if (first) first.classList.add('text-red-600','font-semibold');
+                        if (second) second.classList.add('text-red-600','font-semibold');
+                    }
+                }
+            });
+        }
+        updateStatus();
+        setInterval(updateStatus, 30 * 1000);
+    })();
 });
