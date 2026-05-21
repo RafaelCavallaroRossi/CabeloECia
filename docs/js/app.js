@@ -370,4 +370,30 @@ document.addEventListener("DOMContentLoaded", () => {
         updateStatus();
         setInterval(updateStatus, 30 * 1000);
     })();
+    const themeToggle = document.getElementById('themeToggle');
+    function updateMetaThemeColor(theme) {
+        let meta = document.querySelector('meta[name="theme-color"]');
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.setAttribute('name', 'theme-color');
+            document.head.appendChild(meta);
+        }
+        const color = theme === 'dark' ? getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#121212' : '#ffffff';
+        meta.setAttribute('content', color);
+    }
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        updateMetaThemeColor(theme);
+    }
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    applyTheme(initialTheme);
+    themeToggle?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+    });
 });
