@@ -1,15 +1,123 @@
+:root {
+    --primary: #ec4899;
+    --dark: #111;
+    --light: #fdf2f8;
+    --bg: #ffffff;
+    --text: #111111;
+    --card: #f5f5f5;
+    --muted: #666666;
+}
+
 html {
     scroll-behavior: smooth;
+}
+
+html[data-theme="dark"] {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --card: #1e1e1e;
+  --primary: #f472b6;
+  --muted: #bfbfbf;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+}
+
+html[data-theme="dark"] .bg-white,
+html[data-theme="dark"] .bg-pink-50,
+html[data-theme="dark"] .bg-light,
+html[data-theme="dark"] .rounded-lg,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .max-w-5xl {
+    background-color: var(--card) !important;
+    color: var(--text) !important;
+}
+
+html[data-theme="dark"] .text-gray-500,
+html[data-theme="dark"] .text-gray-800,
+html[data-theme="dark"] p,
+html[data-theme="dark"] .section__description,
+html[data-theme="dark"] .service-info {
+    color: var(--muted) !important;
+}
+
+html[data-theme="dark"] .text-pink-500,
+html[data-theme="dark"] .titulo {
+    color: var(--primary) !important;
+}
+
+html[data-theme="dark"] .button--primary {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(244,114,182,0.12);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+html[data-theme="dark"] .service-card__title,
+html[data-theme="dark"] .service-description,
+html[data-theme="dark"] .service-info,
+html[data-theme="dark"] .service-card__header,
+html[data-theme="dark"] .service-card__content {
+    color: var(--text) !important;
+}
+
+html[data-theme="dark"] .service-card__action {
+    color: var(--primary) !important;
+    background: rgba(244,114,182,0.06);
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+html[data-theme="dark"] .text-pink-600 { color: var(--primary) !important; }
+html[data-theme="dark"] .text-green-600 { color: #86efac !important; }
+html[data-theme="dark"] .text-blue-600 { color: #93c5fd !important; }
+
+html[data-theme="dark"] .review-link { color: var(--primary) !important; font-weight: 700; }
+
+html[data-theme="dark"] header,
+html[data-theme="dark"] .header,
+html[data-theme="dark"] .footer {
+    background-color: #0f0f0f !important;
+    color: var(--text) !important;
+}
+
+html[data-theme="dark"] #formModal input,
+html[data-theme="dark"] #formModal select,
+html[data-theme="dark"] #formModal textarea,
+html[data-theme="dark"] #formModal .w-full {
+    background: var(--card) !important;
+    color: var(--text) !important;
+    border-color: rgba(255,255,255,0.08) !important;
+}
+
+html[data-theme="dark"] #formModal input::placeholder,
+html[data-theme="dark"] #formModal textarea::placeholder {
+    color: rgba(255,255,255,0.6) !important;
+}
+
+html[data-theme="dark"] #formModal input:focus,
+html[data-theme="dark"] #formModal select:focus,
+html[data-theme="dark"] #formModal textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(244,114,182,0.08);
+    border-color: var(--primary) !important;
+}
+
+html[data-theme="dark"] #formModal .bg-white,
+html[data-theme="dark"] #formModal .rounded-lg {
+    background: var(--card) !important;
+    color: var(--text) !important;
 }
 
 a, button {
     transition: all 0.3s ease;
+    color: var(--primary);
 }
 
 a:hover {
@@ -250,14 +358,6 @@ a:hover {
     z-index: 2;
 }
 
-/* Novo */
-
-:root {
-    --primary: #ec4899;
-    --dark: #111;
-    --light: #fdf2f8;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -325,7 +425,7 @@ a:hover {
 }
 
 .card {
-    background: white;
+    background: var(--card);
     text-align: center;
     width: 100%;
     padding: 10px;
