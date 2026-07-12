@@ -25,6 +25,7 @@
             <button id="themeToggle" aria-pressed="false" aria-label="Alternar tema">☀🌙</button>
             <a href="#sobre" class="hover:text-pink-400">Sobre</a>
             <a href="#servicos" class="hover:text-pink-400">Serviços</a>
+            <a href="#produtos" class="hover:text-pink-400">Produtos</a>
             <a href="#contato" class="hover:text-pink-400">Contato</a>
         </nav>
         </header>
@@ -34,6 +35,7 @@
                 <button id="themeToggleMobile" aria-pressed="false" aria-label="Alternar tema">☀🌙</button>
                 <a href="#sobre" class="hover:text-pink-400">Sobre</a>
                 <a href="#servicos" class="hover:text-pink-400">Serviços</a>
+                <a href="#produtos" class="hover:text-pink-400">Produtos</a>
                 <a href="#contato" class="hover:text-pink-400">Contato</a>
             </nav>
         </div>
@@ -51,6 +53,13 @@
                 <h1 class="titulo text-4xl md:text-6xl mb-4 text-pink-300">Realce Sua Beleza</h1>
                 <p class="mb-6">Transformamos autoestima em estilo</p>
                 <a class="button button--primary" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">Agendar horário</a>
+                <div class="avaliacao-canto" aria-hidden="true" aria-live="polite">
+                    <p class="avaliacao-nota"><span class="avaliacao-estrela" aria-hidden="true">★</span> <span class="avaliacao-valor">5.0</span></p>
+                    <p class="avaliacao-texto" id="avaliacao-texto">
+                        "Atendimento excelente, ambiente acolhedor e resultado impecável."
+                    </p>
+                    <p class="avaliacao-autor" id="avaliacao-autor">— Cliente satisfeita</p>
+                </div>
             </div>
         </section>
         <section id="sobre" class="section section--about reveal fade-up">
@@ -273,6 +282,65 @@
                 </div>
             </div>
         </section>
+        </section>
+
+        <section id="produtos" class="produtos-section" aria-labelledby="produtos-title">
+            <div class="container">
+                <div class="produtos-header">
+                    <h2 id="produtos-title" class="section__title titulo text-3xl text-pink-500 mb-6 text-center">Produtos</h2>
+                    <p>Deslize para ver mais itens disponíveis no salão.</p>
+                </div>
+                <div class="produtos-carousel" aria-label="Lista de produtos de beleza" role="list">
+                    <article class="produto-card" role="listitem">
+                        <img src="img/20260530_080258.jpg" alt="Shampoo fortificante" width="320" height="240" loading="lazy" decoding="async">
+                        <div class="produto-info">
+                            <h3>Shampoo Fortificante DYNAMIC</h3>
+                            <p class="produto-descricao">Resistência e força, 240ml.</p>
+                            <p class="produto-preco text-green-600 font-semibold">R$ 103,50</p>
+                            <button class="button button--secondary produto-comprar" data-wa-number="5519991714448" data-wa-text="Quero comprar Shampoo Fortificante DYNAMIC">Comprar</button>
+                        </div>
+                    </article>
+                    <article class="produto-card" role="listitem">
+                        <img src="img/20260530_081612.jpg" alt="Máscara protetora" width="320" height="240" loading="lazy" decoding="async">
+                        <div class="produto-info">
+                            <h3>Máscara Protetora BLINDA COR</h3>
+                            <p class="produto-descricao">Proteção da cor, 240ml.</p>
+                            <p class="produto-preco text-green-600 font-semibold">R$ 131,90</p>
+                            <button class="button button--secondary produto-comprar" data-wa-number="5519991714448" data-wa-text="Quero comprar Máscara Protetora BLINDA COR">Comprar</button>
+                        </div>
+                    </article>
+                    <article class="produto-card" role="listitem">
+                        <img src="img/20260530_080315.jpg" alt="Fluido ativador de cachos" width="320" height="240" loading="lazy" decoding="async">
+                        <div class="produto-info">
+                            <h3>Fluido Ativador de Cachos</h3>
+                            <p class="produto-descricao">Hidrata, ativa e define os cachos, 200ml.</p>
+                            <p class="produto-preco text-green-600 font-semibold">R$ 138,50</p>
+                            <button class="button button--secondary produto-comprar" data-wa-number="5519991714448" data-wa-text="Quero comprar Fluido ativador de cachos">Comprar</button>
+                        </div>
+                    </article>
+                    <article class="produto-card" role="listitem">
+                        <img src="img/20260530_080846.jpg" alt="Loção Facial TimeWise Repair" width="320" height="240" loading="lazy" decoding="async">
+                        <div class="produto-info">
+                            <h3>Loção Facial TimeWise Repair</h3>
+                            <p class="produto-descricao">Efeito Firmador, 29ml.</p>
+                            <p class="produto-preco text-green-600 font-semibold">R$ 221,90</p>
+                            <button class="button button--secondary produto-comprar" data-wa-number="5519991714448" data-wa-text="Quero comprar Loção Facial TimeWise Repair">Comprar</button>
+                        </div>
+                    </article>
+                    <article class="produto-card" role="listitem">
+                        <img src="img/20260530_081439.jpg" alt="Condicionador Nutritivo" width="320" height="240" loading="lazy" decoding="async">
+                        <div class="produto-info">
+                            <h3>Condicionador Nutritivo PROTECT CARE</h3>
+                            <p class="produto-descricao">Nutrição dos fios, 200ml.</p>
+                            <p class="produto-preco text-green-600 font-semibold">R$ 101,50</p>
+                            <button class="button button--secondary produto-comprar" data-wa-number="5519991714448" data-wa-text="Quero comprar Condicionador Nutritivo PROTECT CARE">Comprar</button>
+                        </div>
+                    </article>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-3">Imagens ilustrativas. Para encomendas, entre em contato pelo WhatsApp.</p>
+            </div>
+        </section>
+
         <div id="agendamento" aria-hidden="true"></div>
         <div id="formModal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50" role="dialog" aria-modal="true" aria-hidden="true">
             <div class="bg-white rounded-lg shadow-lg max-w-md w-full mx-4 p-6 relative">
@@ -315,6 +383,9 @@
                 <img src="img/Sala1CABELO&CIA.jpg" srcset="img/Sala1CABELO&CIA.jpg 1x" class="rounded cursor-pointer gallery-img" alt="Imagem 3" loading="lazy" decoding="async" width="400" height="300">
                 <img src="img/Lava2CABELO&CIA.jpg" srcset="img/Lava2CABELO&CIA.jpg 1x" class="rounded cursor-pointer gallery-img" alt="Imagem 4" loading="lazy" decoding="async" width="400" height="300">
                 <img src="img/Sala3CABELO&CIA.jpg" srcset="img/Sala3CABELO&CIA.jpg 1x" class="rounded cursor-pointer gallery-img" alt="Imagem 5" loading="lazy" decoding="async" width="400" height="300">
+                <img src="img/Manicure2.jpg" srcset="img/Manicure2.jpg 1x" class="rounded cursor-pointer gallery-img" alt="Imagem 5" loading="lazy" decoding="async" width="400" height="300">
+                <img src="img/Manicure5.jpg" srcset="img/Manicure5.jpg 1x" class="rounded cursor-pointer gallery-img" alt="Imagem 5" loading="lazy" decoding="async" width="400" height="300">
+                <img src="img/TresDemais.jpg" srcset="img/TresDemais.jpg 1x" class="rounded cursor-pointer gallery-img" alt="Imagem 5" loading="lazy" decoding="async" width="400" height="300">
             </div>
         </section>
         <div id="lightbox" class="fixed inset-0 bg-black/90 items-center justify-center z-50 p-4 hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visualização de imagem">
@@ -333,6 +404,21 @@
                 <a class="button button--social button--facebook" href="https://www.facebook.com/Glaucavallaro" target="_blank" rel="noopener noreferrer">Facebook</a>
                 <a class="button button--social button--instagram" href="https://www.instagram.com/glaucavallaro" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a class="button button--social button--whatsapp" href="https://wa.me/19991714448" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <p class="text-gray-700 mb-4 text-center">
+                    Aceitamos as seguintes formas de pagamento:
+                </p>
+                <div class="payments-grid grid grid-cols-2 sm:grid-cols-4 gap-4 text-center" role="list" aria-label="Meios de pagamento">
+                    <div class="payment-item" role="listitem"><span class="sr-only">Dinheiro</span><span class="payment-label">Dinheiro</span></div>
+                    <div class="payment-item" role="listitem"><span class="sr-only">Pix</span><span class="payment-label">Pix</span></div>
+                    <div class="payment-item" role="listitem"><span class="sr-only">Cheque</span><span class="payment-label">Cheque</span></div>
+                    <div class="payment-item" role="listitem"><span class="sr-only">Cartão de Débito</span><span class="payment-label">Débito</span></div>
+                    <div class="payment-item" role="listitem"><span class="sr-only">Cartão de Crédito</span><span class="payment-label">Crédito</span></div>
+                    <div class="payment-item" role="listitem"><span class="sr-only">Vales</span><span class="payment-label">Vales</span></div>
+                    <div class="payment-item" role="listitem"><span class="sr-only">Criptomoedas</span><span class="payment-label">Criptomoedas</span></div>
+                </div>
+                <p class="text-sm text-gray-500 mt-4 text-center">
+                    Consulte disponibilidade para parcelamento.
+                </p>
             </div>
             <div class="contact-review">
                 <div class="max-w-5xl mx-auto bg-pink-50 rounded-2xl shadow-lg overflow-hidden">
@@ -369,6 +455,6 @@
             © 2026 Cabelo &amp; Cia Itapira
             <p>Todos os direitos reservados. | Desenvolvido por Rafael Cavallaro Rossi</p>
         </footer>
-                <script defer src="js/app.js"></script>
+        <script defer src="js/app.js"></script>
     </body>
 </html>
