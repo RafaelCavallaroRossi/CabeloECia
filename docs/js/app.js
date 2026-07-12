@@ -1,12 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll('#carousel img');
+    const avaliacaoNotaEl = document.querySelector('.avaliacao-valor');
+    const avaliacaoTextoEl = document.getElementById('avaliacao-texto');
+    const avaliacaoAutorEl = document.getElementById('avaliacao-autor');
+
+    const avaliacoes = [
+        { nota: '5.0', texto: '"Ambiente maravilhoso e atendimento impecável."', autor: '— Fernanda' },
+        { nota: '5.0', texto: '"Corte perfeito, recomendo demais."', autor: '— Isabela' },
+        { nota: '4.0', texto: '"Cortaram meu cabelo várias vezes."', autor: '— Usuário Satisfeito' },
+        { nota: '5.0', texto: '"Usando os serviços por mais de 30 anos. 🙏"', autor: '— Cristiane' },
+        { nota: '4.0', texto: '"Só não curou minha calvice, mas o serviço é ótimo."', autor: '— Vinicius' }
+    ];
+
     if (slides.length) {
         let sIndex = 0;
         slides.forEach((s, i) => s.style.opacity = i === 0 ? '1' : '0');
+        function updateAvaliacao(idx) {
+            const a = avaliacoes[idx % avaliacoes.length] || avaliacoes[0];
+            if (avaliacaoNotaEl) avaliacaoNotaEl.textContent = a.nota;
+            if (avaliacaoTextoEl) avaliacaoTextoEl.textContent = a.texto;
+            if (avaliacaoAutorEl) avaliacaoAutorEl.textContent = a.autor;
+        }
+        updateAvaliacao(0);
         setInterval(() => {
             slides[sIndex].style.opacity = 0;
             sIndex = (sIndex + 1) % slides.length;
-            requestAnimationFrame(() => slides[sIndex].style.opacity = 1);
+            requestAnimationFrame(() => {
+                slides[sIndex].style.opacity = 1;
+                updateAvaliacao(sIndex);
+            });
         }, 4000);
     }
     const menuBtn = document.getElementById('menuBtn');
@@ -396,4 +418,16 @@ document.addEventListener("DOMContentLoaded", () => {
         applyTheme(next);
         localStorage.setItem('theme', next);
     }));
+    const produtoBuyBtns = Array.from(document.querySelectorAll('.produto-comprar'));
+    produtoBuyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const number = btn.dataset.waNumber || btn.dataset.wa || '5519991714448';
+            const text = btn.dataset.waText || btn.dataset.waText || '';
+            const mensagem = encodeURIComponent(text);
+            let waNumber = String(number).replace(/\D/g, '');
+            if (!waNumber.startsWith('55')) waNumber = '55' + waNumber;
+            const waUrl = `https://wa.me/${waNumber}?text=${mensagem}`;
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+        });
+    });
 });
